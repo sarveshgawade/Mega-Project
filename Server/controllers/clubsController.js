@@ -9,7 +9,7 @@ const getAllClubs = async function(req,res,next){
 
     res.status(200).json({
         success:true,
-        message: "All courses.",
+        message: "All Clubs.",
         club
     });
 
@@ -18,7 +18,7 @@ const getAllClubs = async function(req,res,next){
 const createClub = async(req,res,next)=>{
     const{clubName,event_id ,description} = req.body;
     try {
-      if(!clubName || !description  ||event_id){
+      if(!clubName || !description  || !event_id){
         return next(new AppError('All fields are required',400))
     }
       const club = await Club.create({

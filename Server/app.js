@@ -36,9 +36,9 @@ app.use('/ping',(req,res)=>{
     res.send('pong')       // for testing purpose
 })
 
-app.use('/api/v1/user',userRoute)
-app.use('/api/v1/clubs',clubRouter)
-app.use('/api/v2/company',companyRoutes)
+app.use('/user',userRoute)
+app.use('/clubs',clubRouter)
+app.use('/company',companyRoutes)
 // app.use('/api/v1/payments',paymentRoute)
 
 app.all('*',(req,res)=>{    // if somebody enters url other than any route defined here 
