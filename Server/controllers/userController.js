@@ -5,8 +5,6 @@ import fs from 'fs/promises'
 import sendEmail from "../utils/sendEmail.js"
 import crypto from 'crypto'
 import { configDotenv } from "dotenv"
-import { log } from "console"
-
 configDotenv()
 
 const cookieOptions = {
