@@ -99,7 +99,7 @@ userSchema.methods = {
         this.forgotPasswordExpiry = Date.now() + (15*60*1000)
 
         return  resetToken
-    },
+    }
 
 }
 

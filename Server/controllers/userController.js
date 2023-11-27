@@ -5,6 +5,7 @@ import fs from 'fs/promises'
 import sendEmail from "../utils/sendEmail.js"
 import crypto from 'crypto'
 import { configDotenv } from "dotenv"
+import { log } from "console"
 
 configDotenv()
 
@@ -172,7 +173,8 @@ const forgotPassword = async (req,res,next) =>{
     await userFromDB.save()
 
     const resetPasswordURL = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`
-    console.log(resetPasswordURL);
+    console.log(`Reset PAssword URL -> ${resetPasswordURL}`);
+    // console.log();
     const subject = `Reset Password`
     const message = `You can reset your password by clicking <a href=${resetPasswordURL} target="_blank">Reset your password</a>\nIf the above link does not work for some reason then copy paste this link in new tab ${resetPasswordURL}.\n If you have not requested this, kindly ignore.`;
 
