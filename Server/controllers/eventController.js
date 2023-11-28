@@ -48,4 +48,43 @@ const createEvent = async (req,res,next) => {
     }
 }
 
-export {createEvent}
+const removeEvent = async (req,res,next) =>{
+    try {
+        const {eventId} = req.body
+
+        if(!eventId){
+            return next(new AppError('EventID is required',500))
+        }
+
+        const eventToBeDeleted = await event.findOne({eventId})
+        if(!eventToBeDeleted){
+            return next(new AppError('Event not found !',500))
+        }
+        
+        const eventInClub = await Club.findOne({eventId})
+        
+
+        const index = eventInClub.eventId.indexOf(eventId);
+        console.log(`Index-> ${index}`);
+
+        eventInClub.eventId.splice(index,1) ;
+
+        await eventInClub.save()
+        await event.deleteOne({eventId})
+
+       
+
+        res.status(200).json({
+            success: true ,
+            message: "Event deleted successfully !"
+        })
+    } catch (error) {
+        res.status(500).json({
+            success:false,
+            message: error.message
+        })
+    }
+    
+}
+
+export {createEvent,removeEvent}

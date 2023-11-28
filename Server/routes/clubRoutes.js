@@ -11,6 +11,7 @@ const router = Router();
 // ROUTES
 router.get('/',getAllClubs)
 router.post('/create-club',isLoggedIn,authorizedRoles('ADMIN'),upload.single('thumbnail'),createClub)
+// remove club has errors
 router.delete('/:id',isLoggedIn,authorizedRoles('ADMIN'),removeClub)
 router.use('/events',eventRoutes)
 
