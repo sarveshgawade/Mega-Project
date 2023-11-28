@@ -28,4 +28,5 @@ router.route('/:id')
 
 )
 
+router.route('/events')
 export default router;

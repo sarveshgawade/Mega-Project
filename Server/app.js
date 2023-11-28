@@ -7,6 +7,7 @@ import userRoute from './routes/userRoutes.js'
 import clubRouter from './routes/clubRoutes.js'
 import errorMiddleware from './middleware/errorMiddleware.js'
 import companyRoutes from './routes/comapnyRoutes.js'
+import eventRoutes from './routes/eventRoutes.js'
 
 
 const app = express()
@@ -40,7 +41,7 @@ app.use('/ping',(req,res)=>{
 app.use('/user',userRoute)
 app.use('/clubs',clubRouter)
 app.use('/company',companyRoutes)
-// app.use('/api/v1/payments',paymentRoute)
+app.use('/event',eventRoutes)
 
 app.all('*',(req,res)=>{    // if somebody enters url other than any route defined here 
     res.status(404).send(`Oops ! Page 404 not found !`)

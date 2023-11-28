@@ -31,10 +31,10 @@ const createClub = new Schema(
             type: Number,
             default: 0,
           },
-          adminID:{
-            type:String,
-            required: [true,'admin id is required']
-          },
+          // adminID:{
+          //   type:String,
+          //   required: [true,'admin id is required']
+          // },
           eventId:{
             type:String,
             required:[true,'eventId is required']

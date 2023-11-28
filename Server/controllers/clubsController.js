@@ -16,19 +16,26 @@ const getAllClubs = async function(req,res,next){
 }
 
 const createClub = async(req,res,next)=>{
-    const{clubName,event_id ,description} = req.body;
+    const{clubName,eventId ,description,clubId} = req.body;
     try {
-      if(!clubName || !description  || !event_id){
+      if(!clubName || !description  || !eventId || !clubId){
         return next(new AppError('All fields are required',400))
-    }
+      }
+
+      const ifClubExists = await Club.findOne({clubId})
+      if(ifClubExists){
+        return next(new AppError('Club already exists with given ClubID,try another ClubId',500))
+      }
+
       const club = await Club.create({
         clubName,
-    
+        clubId,
         description,
         thumbnail:{
          public_id:'Dummy',
          secure_url:'Dummy'
-        }
+        },
+        eventId
       })
 
       if(!club){

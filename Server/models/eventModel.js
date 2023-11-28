@@ -19,7 +19,7 @@ const eventSchema = new mongoose.Schema({
         minLength: [5,'minLength should be atleast 5 characters']
     }
     
-})
+},{timestamps:true})
 
 const event = model('Event',eventSchema)
 
