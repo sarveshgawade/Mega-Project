@@ -28,9 +28,9 @@ const createEvent = async (req,res,next) => {
         await newEvent.save()
 
         let club = await Club.findOne({clubId})
-        // console.log(`CLUB -> ${club}`);
+        
         club.eventId.push(eventId) 
-        // console.log(`CLUB -> ${club}`);
+       
 
         await club.save()
 
@@ -65,7 +65,7 @@ const removeEvent = async (req,res,next) =>{
         
 
         const index = eventInClub.eventId.indexOf(eventId);
-        console.log(`Index-> ${index}`);
+        
 
         eventInClub.eventId.splice(index,1) ;
 
