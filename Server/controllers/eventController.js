@@ -87,4 +87,25 @@ const removeEvent = async (req,res,next) =>{
     
 }
 
-export {createEvent,removeEvent}
+const getAllEvents = async (req,res,next) => {
+    try {
+        const events = await event.find({})
+
+        if(!events){
+            return next(new AppError('Error in getting all events !',500))
+        }
+
+        res.status(200).json({
+            success: true, 
+            message: "All events are: ",
+            events
+        })
+    } catch (error) {
+        res.status(500).json({
+            success:false,
+            message: error.message
+        })
+    }
+}
+
+export {createEvent,removeEvent,getAllEvents}
