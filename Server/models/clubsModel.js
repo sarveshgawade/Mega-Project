@@ -2,7 +2,10 @@ import mongoose, { Schema, model } from 'mongoose'
 
 const createClub = new Schema(
     {
-        
+        clubId :{
+          type: String ,
+          required: [true,'Club ID is required']
+        },
         clubName: {
             type: String,
             required: [true, 'Club name is required'],
@@ -13,24 +16,9 @@ const createClub = new Schema(
           description: {
             type: String,
             required: [true, 'Description is required'],
-            minlength: [20, 'Description must be atleast 20 characters long'],
+            minlength: [10, 'Description must be atleast 10 characters long'],
           },
-          clubs: [
-            {
-              clubName: String,
-              description: String,
-              lecture: {
-                public_id: {
-                  type: String,
-                  required: true,
-                },
-                secure_url: {
-                  type: String,
-                  required: true,
-                },
-              },
-            },
-          ],
+          
           thumbnail: {
             public_id: {
               type: String,
@@ -43,6 +31,14 @@ const createClub = new Schema(
             type: Number,
             default: 0,
           },
+          adminID:{
+            type:String,
+            required: [true,'admin id is required']
+          },
+          eventId:{
+            type:String,
+            required:[true,'eventId is required']
+          }
           
         },
         {

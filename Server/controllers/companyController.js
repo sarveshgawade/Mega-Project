@@ -96,13 +96,13 @@ const updateCompany = async (req,res) =>{
 const removeCompany = async (req,res) =>{
     const {id} = req.params
 
-    const courseToBeDeleted = await Company.findById(id)
+    const companyToBeDeleted = await Company.findById(id)
 
-    if(!courseToBeDeleted){
+    if(!companyToBeDeleted){
         res.status(500).json({
             success: false,
             message: 'Unable to find comapny with given id!'
-    })
+        })
     }
 
     await Company.findByIdAndDelete(id)
