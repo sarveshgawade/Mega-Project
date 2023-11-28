@@ -41,7 +41,7 @@ app.use('/ping',(req,res)=>{
 app.use('/user',userRoute)
 app.use('/clubs',clubRouter)
 app.use('/company',companyRoutes)
-app.use('/event',eventRoutes)
+// app.use('/event',eventRoutes)
 
 app.all('*',(req,res)=>{    // if somebody enters url other than any route defined here 
     res.status(404).send(`Oops ! Page 404 not found !`)

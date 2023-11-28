@@ -35,9 +35,9 @@ const createClub = new Schema(
           //   type:String,
           //   required: [true,'admin id is required']
           // },
-          eventId:{
+          eventId:[{
             type:String,
-          }
+          }]
           
         },
         {

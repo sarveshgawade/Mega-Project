@@ -6,6 +6,7 @@ const router = Router()
 
 
 // ROUTES
+// router.get('/',getAllEvents)
 router.post('/create-event',createEvent)
 
 export default router

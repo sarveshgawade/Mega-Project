@@ -28,9 +28,9 @@ const createEvent = async (req,res,next) => {
         await newEvent.save()
 
         let club = await Club.findOne({clubId})
-        console.log(`CLUB -> ${club}`);
-        club.eventId = eventId
-        console.log(`CLUB -> ${club}`);
+        // console.log(`CLUB -> ${club}`);
+        club.eventId.push(eventId) 
+        // console.log(`CLUB -> ${club}`);
 
         await club.save()
 
