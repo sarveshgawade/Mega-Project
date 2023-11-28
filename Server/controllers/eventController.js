@@ -24,7 +24,15 @@ const createEvent = async (req,res,next) => {
             return next(new AppError('Error in creating Event !',500))
         }
 
+        
         await newEvent.save()
+
+        let club = await Club.findOne({clubId})
+        console.log(`CLUB -> ${club}`);
+        club.eventId = eventId
+        console.log(`CLUB -> ${club}`);
+
+        await club.save()
 
         res.status(200).json({
             success:true,

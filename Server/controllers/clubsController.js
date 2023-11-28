@@ -16,9 +16,9 @@ const getAllClubs = async function(req,res,next){
 }
 
 const createClub = async(req,res,next)=>{
-    const{clubName,eventId ,description,clubId} = req.body;
+    const{clubName,description,clubId} = req.body;
     try {
-      if(!clubName || !description  || !eventId || !clubId){
+      if(!clubName || !description  || !clubId){
         return next(new AppError('All fields are required',400))
       }
 
@@ -35,7 +35,7 @@ const createClub = async(req,res,next)=>{
          public_id:'Dummy',
          secure_url:'Dummy'
         },
-        eventId
+       
       })
 
       if(!club){

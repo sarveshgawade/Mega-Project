@@ -37,7 +37,6 @@ const createClub = new Schema(
           // },
           eventId:{
             type:String,
-            required:[true,'eventId is required']
           }
           
         },
