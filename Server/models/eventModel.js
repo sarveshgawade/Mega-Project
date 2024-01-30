@@ -7,15 +7,15 @@ const eventSchema = new mongoose.Schema({
     },
     clubId:{
         type: String,
-        required : [true,'EventId is required']
+        required : [true,'Club is required']
     },
     eventName:{
         type: String,
-        required : [true,'EventId is required']
+        required : [true,'EventName is required']
     },
     description:{
         type: String,
-        required : [true,'EventId is required'],
+        required : [true,'Description is required'],
         minLength: [5,'minLength should be atleast 5 characters']
     }
     

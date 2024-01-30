@@ -1,9 +1,10 @@
 import AppError from "../utils/errorUtil.js";
 import event from "../models/eventModel.js";
 import Club from "../models/clubsModel.js";
-
+import user from '../models/userModel.js'
 
 const createEvent = async (req,res,next) => {
+    
     const {eventId,clubId,eventName,description} = req.body
     
     try {
@@ -40,7 +41,11 @@ const createEvent = async (req,res,next) => {
             newEvent
         })
 
-    } catch (error) {
+    } 
+    
+
+    
+    catch (error) {
         res.status(500).json({
             success: false,
             message: error.message

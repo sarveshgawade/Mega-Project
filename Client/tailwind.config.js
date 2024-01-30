@@ -1,23 +1,12 @@
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: [
-    './src/**/*.{js,jsx,ts,tsx}',
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        nav: '#6c2bd9'},
-      backgroundImage: {
-        'wave': "url('./Assets/wave.svg')",
-        'back':"url('./Assets/back.svg')",
-        'log':"url('./Assets/login.svg')",
-      },
-    },
+    extend: {},
   },
-  daisyui: {
-    themes:["light"]
-  },
-  plugins: [
-    require('flowbite/plugin'),
-    require('daisyui'),
-  ],
-};
+  plugins: [],
+}
+

@@ -52,6 +52,11 @@ const userSchema = new mongoose.Schema({
     subscription:{
         id: 'String',
         status: 'String'
+    },
+    filledDetails:{
+        type: 'Boolean',
+        enum :['true','false'],
+        default: 'false'
     }
 
     /**
