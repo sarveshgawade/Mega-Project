@@ -1,11 +1,13 @@
+import { Routes } from "react-router-dom"
 
 
 function App() {
   
-
   return (
     <>
-      haha
+      <Routes>
+        
+      </Routes>
     </>
   )
 }
